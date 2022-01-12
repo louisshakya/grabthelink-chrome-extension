@@ -1,0 +1,13 @@
+{
+    "manifest_version": 3,
+    "version": "1.0",
+    "name": "LinkMe",
+    "action": {
+        "default_popup": "index.html",
+        "default_icon": "icon1.0.png"
+    },
+    "permissions": [
+        "tabs"
+      ]
+
+}
