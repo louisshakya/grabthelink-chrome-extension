@@ -14,7 +14,7 @@ autoLinkButton.addEventListener("click", function(){
         localStorage.setItem("myTitles", JSON.stringify(myTitles))
         myLinks.push(tabs[0].url)
         localStorage.setItem("myLinks", JSON.stringify(myLinks))
-        render(myTitles, myLinks, inputTitles)
+        render(myTitles, myLinks)
       });
 })
 
@@ -22,42 +22,33 @@ inputButton.addEventListener("click", function() {
     if(inputEl.value == "") {
         return
     }
-    inputTitles.push(inputEl.value)
+    myTitles.push(inputEl.value)
+    localStorage.setItem("myTitles",JSON.stringify(myTitles))
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        myLinks.push(tabs[0].url)
+        localStorage.setItem("myLinks", JSON.stringify(myLinks))
+        render(myTitles, myLinks)
+      });
     inputEl.value = ""
-    localStorage.setItem("inputTitles",JSON.stringify(inputTitles))
-    render(myTitles, myLinks, inputTitles)
-    
 })
 
 const storedLinks = JSON.parse(localStorage.getItem("myLinks"))
 const storedTitles = JSON.parse(localStorage.getItem("myTitles"))
-const storedInputTitles = JSON.parse(localStorage.getItem("inputTitles"))
 
 
-if (storedLinks && storedTitles && storedInputTitles) {
+if (storedLinks && storedTitles) {
     myTitles = storedTitles
     myLinks = storedLinks
-    inputTitles = storedInputTitles
-    render(myTitles, myLinks, inputTitles)
+    render(myTitles, myLinks)
 }
 
-function render(titles, links, input) {
+function render(titles, links) {
     let listItems = ""
     let counter = 0
-    let text = []
-    if(titles.length != 0){
-        console.log("there  asdfasdfs ais title")
-        text = [...titles]
-        console.log(text)
-    } else if (input.length != 0) {
-        console.log("there is NOOO title")
-        text = [...input]
-        console.log(text)
-    }
     for (let i = 0; i < links.length; i++) {
         listItems += `
         <li>
-            <h3 id="${i}">${text[i]}</h3>
+            <h3 id="${i}">${titles[i]}</h3>
             <a target='_blank' href='${links[i]}'>
                 ${links[i]}
             </a>
@@ -105,15 +96,12 @@ function deleteLink(index){
     localStorage.setItem("myTitles",JSON.stringify(myTitles));
     myLinks.splice(index, 1);
     localStorage.setItem("myLinks",JSON.stringify(myLinks));
-    inputTitles.splice(index, 1);
-    localStorage.setItem("inputTitles", JSON.stringify(inputTitles));
-    render(myTitles, myLinks, inputTitles)
+    render(myTitles, myLinks)
 }
 
 deleteAll.addEventListener("click", function(){
     localStorage.clear()
     myLinks = []
     myTitles = []
-    inputTitles = []
-    render(myTitles, myLinks, inputTitles)
+    render(myTitles, myLinks)
 })
