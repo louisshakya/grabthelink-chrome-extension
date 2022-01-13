@@ -3,7 +3,9 @@ body {
     padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
     min-width: 400px;
-    width: max-content;
+    max-height: 200px;
+    max-width: 400px;
+    background-color: #0D1117;
 }
 
 input {
@@ -12,6 +14,8 @@ input {
     box-sizing: border-box;
     border: 1px solid #9559ba;
     margin-bottom: 5px;
+    background-color: #161B22;
+    color:#9559ba
 }
 
 input:hover {
@@ -43,6 +47,7 @@ li {
     display: flex;
     margin-bottom: 5px;
     font-size: 3ch;
+    align-items: center;
 }
 
 li a {
@@ -59,15 +64,16 @@ h3{
     color: #9559ba;
     font-weight: 400;
     margin: 0;
+    margin-left: 40px;
+    width: max-content;
     /* background-color: aqua; */
-    font-size: 2ch;
 }
 
 svg {
     /* background-color: crimson; */
-    width: 2ch;
-    height: 2ch;
-    margin-left: 10px;
+    width: 3ch;
+    height: 3ch;
+    position: absolute;
 }
 
 #delete-icon {
