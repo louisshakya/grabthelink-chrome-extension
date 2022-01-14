@@ -3,14 +3,13 @@ body {
     padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
     min-width: 400px;
-    max-height: 200px;
-    max-width: 400px;
+    width: max-content;
     background-color: #0D1117;
 }
 
 input {
     padding: 10px;
-    width: 100%;
+    width: 400px;
     box-sizing: border-box;
     border: 1px solid #9559ba;
     margin-bottom: 5px;
@@ -53,20 +52,13 @@ li {
 li a {
     /* background-color: chartreuse; */
     color: #9559ba;
-    margin-left: 10px;
+    margin-left: 40px;
+    font-weight: 400;
+    max-width: fit-content;
 }
 
 li a:hover {
     color: #f5a147;
-}
-
-h3{
-    color: #9559ba;
-    font-weight: 400;
-    margin: 0;
-    margin-left: 40px;
-    width: max-content;
-    /* background-color: aqua; */
 }
 
 svg {
