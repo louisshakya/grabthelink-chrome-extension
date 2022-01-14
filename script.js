@@ -48,9 +48,8 @@ function render(titles, links) {
     for (let i = 0; i < links.length; i++) {
         listItems += `
         <li>
-            <h3 id="${i}">${titles[i]}</h3>
             <a target='_blank' href='${links[i]}'>
-                ${links[i]}
+                ${titles[i]}
             </a>
             <svg class="delete-button-svg" id="${i}" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300.000000 300.000000">
              <g id="delete-icon" transform="translate(0.000000,300.000000) scale(0.100000,-0.100000)"
