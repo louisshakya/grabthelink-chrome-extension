@@ -1,3 +1,15 @@
+html::-webkit-scrollbar {
+    width: 2vw;
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: #f5a147;
+}
+
+html::-webkit-scrollbar-track {
+    background-color: #9559ba;
+}
+
 body {
     margin: 0;
     padding: 10px;
