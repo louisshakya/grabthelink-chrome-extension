@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css">
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="input-container">
-      <img class="link-icon" src="icon1.0.png"/>
-      <input type="text" id="input-el"/>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="index.css">
+  <script src="script.js" defer></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="input-container">
+    <img class="link-icon" src="icon1.0.png" />
+    <input type="text" id="input-el" />
+    <div class="search">
+      <span>
+      <svg class="search-svg">
+        <use href="#search-img" />
+      </svg>
+      </span>
+      <div class="inputSearch"></div>
     </div>
-    <div class="buttons">
+  </div>
+  <div class="buttons">
     <button id="input-btn">SAVE INPUT</button>
     <button id="deleteAll-btn">DELETE ALL</button>
     <button id="auto-link-btn">AUTO LINK</button>
@@ -20,6 +31,27 @@
   <div>
     <ul id=ul-el></ul>
   </div>
-    <script src="script.js"></script>
-  </body>
+  <svg version="1.0" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="display:none">
+    <symbol id="search-img" viewBox="0 0 100.000000 100.000000">
+      <g id="search-icon" transform="translate(0.000000,100.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+        <path d="M435 751 c-174 -44 -237 -239 -119 -370 67 -74 151 -97 239 -66 l39
+        14 57 -54 c61 -58 74 -63 103 -42 34 25 23 64 -32 120 l-51 52 17 30 c22 41
+        22 149 -1 191 -49 92 -161 148 -252 125z m97 -41 c75 -21 137 -102 138 -179 0
+        -84 -79 -174 -166 -187 -64 -9 -145 31 -179 90 -52 88 -18 219 66 258 68 31
+        84 33 141 18z" />
+      </g>
+    </symbol>
+  </svg>
+  <svg version="1.0" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="display:none">
+    <symbol id="erase-img" viewBox="0 0 100.000000 100.000000">
+      <g id="erase-icon" transform="translate(0.000000,100.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+        <path d="M560 680 l-62 -92 -55 61 c-56 62 -81 73 -104 45 -14 -18 -16 -14 54
+        -100 27 -33 51 -64 53 -70 6 -13 -70 -135 -123 -201 -39 -47 -42 -86 -7 -91
+        25 -4 87 62 141 150 20 32 39 58 44 58 4 0 43 -45 85 -101 66 -86 80 -100 103
+        -97 49 6 38 39 -53 156 -47 60 -86 114 -86 120 0 5 30 55 67 112 53 81 64 106
+        56 119 -5 9 -19 17 -31 19 -16 3 -34 -16 -82 -88z" />
+      </g>
+    </symbol>
+  </svg>
+</body>
 </html>
