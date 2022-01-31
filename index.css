@@ -40,6 +40,7 @@ input {
     color: #9559ba;
     font-size: 1rem;
     outline: none;
+    transition: 0.5s;
 }
 
 input:hover {
@@ -132,7 +133,6 @@ li a:hover {
                 inset 0px 0px 5px #ff8400,
                 inset 0px 0px 5px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
@@ -142,8 +142,24 @@ li a:hover {
     left: 0;
     width: 40px;
     height: 40px;
+    cursor: pointer;
 }
 
 #search-icon {
     fill: #9559ba;
+}
+
+
+.search.active {
+    width: 300px;
+    box-shadow: 0px 0px 5px #9559ba,
+                0px 0px 5px rgba(0, 0, 0, 0.1),
+                inset 0px 0px 5px #9559ba,
+                inset 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+input.active {
+    visibility:hidden;
+    width: 0;
+    opacity: 0;
 }

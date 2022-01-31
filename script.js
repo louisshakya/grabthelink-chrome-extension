@@ -7,6 +7,13 @@ const ulEl = document.getElementById("ul-el")
 const inputButton = document.getElementById("input-btn")
 const deleteAll = document.getElementById("deleteAll-btn")
 const autoLinkButton = document.getElementById("auto-link-btn")
+const searchButton = document.querySelector(".search")
+const searchSvg = document.querySelector(".search-svg")
+
+searchSvg.addEventListener("click",function() {
+    searchButton.classList.toggle("active")
+    inputEl.classList.toggle("active")
+})
 
 autoLinkButton.addEventListener("click", function(){
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
