@@ -52,7 +52,7 @@ if (storedLinks && storedTitles) {
 function render(titles, links) {
     let listItems = ""
     let counter = 0
-    for (let i = 0; i < links.length; i++) {
+    for (let i = links.length-1; i >= 0; i--) {
         listItems += `
         <li>
             <a target='_blank' href='${links[i]}'>
