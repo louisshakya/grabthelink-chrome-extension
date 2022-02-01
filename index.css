@@ -31,8 +31,9 @@ body {
     background-color: hsl(216, 28%, 7%);
 }
 
-input {
-    width: 65%;
+#input-el {
+    /* width: 65%; */
+    width: 0;
     padding: 10px;
     box-sizing: border-box;
     border: 1px solid #9559ba;
@@ -43,7 +44,7 @@ input {
     transition: 0.5s;
 }
 
-input:hover {
+#input-el:hover {
     border: 1px solid #f5a147;
 }
 
@@ -72,7 +73,7 @@ li {
     /* background-color: blue; */
     display: flex;
     margin-bottom: 5px;
-    font-size: 3ch;
+    font-size: 2ch;
     align-items: center;
 }
 
@@ -119,18 +120,23 @@ li a:hover {
 
 .link-icon {
     height: 40px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px #9559ba,
+                0px 0px 5px rgba(0, 0, 0, 0.1),
+                inset 0px 0px 5px #9559ba,
+                inset 0px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
 .search {
-    width: 40px;
+    width: 300px;
     height: 40px;
-    background-color: #fff;
+    background-color: hsl(216, 28%, 7%);
     border-radius: 40px;
-    border: 2px solid #fff;
+    border: 2px solid hsl(216, 28%, 7%);
     transition: 0.5s;
-    box-shadow: 0px 0px 5px #ff8400,
+    box-shadow: 0px 0px 5px #9559ba,
                 0px 0px 5px rgba(0, 0, 0, 0.1),
-                inset 0px 0px 5px #ff8400,
+                inset 0px 0px 5px #9559ba,
                 inset 0px 0px 5px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
@@ -152,14 +158,15 @@ li a:hover {
 
 .search.active {
     width: 300px;
-    box-shadow: 0px 0px 5px #9559ba,
+    box-shadow: 0px 0px 5px #ff8400,
                 0px 0px 5px rgba(0, 0, 0, 0.1),
-                inset 0px 0px 5px #9559ba,
+                inset 0px 0px 5px #ff8400,
                 inset 0px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
-input.active {
+#input-el.active {
     visibility:hidden;
     width: 0;
     opacity: 0;
 }
+
