@@ -2,17 +2,34 @@
 let myLinks = []
 let myTitles = []
 let inputTitles = []
+let isVisible = false
 const inputEl = document.getElementById("input-el")
 const ulEl = document.getElementById("ul-el")
 const inputButton = document.getElementById("input-btn")
 const deleteAll = document.getElementById("deleteAll-btn")
 const autoLinkButton = document.getElementById("auto-link-btn")
 const searchButton = document.querySelector(".search")
-const searchSvg = document.querySelector(".search-svg")
+const searchSvg = document.querySelector(".search-icon-div")
+const eraseSvg = document.querySelector(".erase-svg")
+const searchInput = document.getElementById("searchInput-el")
+
+eraseSvg.addEventListener("click", function() {
+    searchInput.value = ""
+})
 
 searchSvg.addEventListener("click",function() {
     searchButton.classList.toggle("active")
     inputEl.classList.toggle("active")
+    console.log(isVisible)
+    if (isVisible === false) {
+        eraseSvg.setAttribute("style","visibility: visible")
+        isVisible = true
+        console.log(isVisible)
+    } else {
+        eraseSvg.setAttribute("style","visibility: hidden")
+        isVisible = false
+        console.log(isVisible)
+    }
 })
 
 autoLinkButton.addEventListener("click", function(){

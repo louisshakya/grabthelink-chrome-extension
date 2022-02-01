@@ -32,8 +32,8 @@ body {
 }
 
 #input-el {
-    /* width: 65%; */
-    width: 0;
+    width: 65%;
+    /* width: 0; */
     padding: 10px;
     box-sizing: border-box;
     border: 1px solid #9559ba;
@@ -116,6 +116,7 @@ li a:hover {
     max-width: 400px;
     justify-content: space-between;
     padding: 5px;
+    overflow: hidden;
 }
 
 .link-icon {
@@ -128,7 +129,9 @@ li a:hover {
 }
 
 .search {
-    width: 300px;
+    position: relative;
+    width: 40px;
+    /* width: 300px; */
     height: 40px;
     background-color: hsl(216, 28%, 7%);
     border-radius: 40px;
@@ -138,17 +141,25 @@ li a:hover {
                 0px 0px 5px rgba(0, 0, 0, 0.1),
                 inset 0px 0px 5px #9559ba,
                 inset 0px 0px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
+    overflow: hidden;
+}
+.search-icon-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    z-index: 1000;
 }
 
 .search .search-svg {
-    position: relative;
+    position: absolute;
     top: 0;
     left: 0;
     width: 40px;
     height: 40px;
     cursor: pointer;
+    z-index: 1000;
 }
 
 #search-icon {
@@ -170,3 +181,55 @@ li a:hover {
     opacity: 0;
 }
 
+
+.inputSearch {
+    position: relative;
+    width: 240px;
+    height: 40px;
+    left: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#searchInput-el {
+    width: 100%;
+    height: 60%;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: 10px 0;
+    padding-right: 25px;
+    background: none;
+    color: #9559ba;
+}
+
+.erase-icon-div{
+    position: absolute;
+    top: 80%;
+    transform: translateY(-73%);
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.erase-svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+#erase-icon {
+    fill: #ff8400;
+}
