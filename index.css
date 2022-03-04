@@ -28,7 +28,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     min-width: 400px;
     width: max-content;
-    background-color: hsl(216, 28%, 7%);
+    background-color: #28223F;
 }
 
 #input-el {
@@ -36,30 +36,31 @@ body {
     /* width: 0; */
     padding: 10px;
     box-sizing: border-box;
-    border: 1px solid #9559ba;
-    background-color: hsl(215, 21%, 11%);
+    border: 0px solid #9559ba;
+    border-radius: 40px;
+    box-shadow: inset 4px 4px 8px #1d192e,
+            inset -4px -4px 8px #332b50;
+    background-color: #1d192e;
     color: #9559ba;
     font-size: 1rem;
     outline: none;
-    transition: 0.5s;
-}
-
-#input-el:hover {
-    border: 1px solid #f5a147;
 }
 
 button {
-    background: #9559ba;
+    background: #28223f;
     color: white;
     padding: 10px;
     border: none;
     font-weight: bold;
     margin-bottom: 5px;
     cursor: pointer;
+    transition: 0.1s ease-in-out;
 }
 
 button:hover {
-    background: #f5a147;
+    background: #28223f;
+    box-shadow: inset 4px 4px 8px #1d192e,
+            inset -4px -4px 8px #332b50;
 }
 
 ul {
@@ -122,10 +123,8 @@ li a:hover {
 .link-icon {
     height: 40px;
     border-radius: 50%;
-    box-shadow: 0px 0px 5px #9559ba,
-                0px 0px 5px rgba(0, 0, 0, 0.1),
-                inset 0px 0px 5px #9559ba,
-                inset 0px 0px 5px rgba(0, 0, 0, 0.1);
+    box-shadow:  4px 4px 8px #1d192e,
+             -4px -4px 8px #332b50;
 }
 
 .search {
@@ -133,14 +132,11 @@ li a:hover {
     width: 40px;
     /* width: 300px; */
     height: 40px;
-    background-color: hsl(216, 28%, 7%);
+    background: #28223f;
     border-radius: 40px;
-    border: 2px solid hsl(216, 28%, 7%);
     transition: 0.5s;
-    box-shadow: 0px 0px 5px #9559ba,
-                0px 0px 5px rgba(0, 0, 0, 0.1),
-                inset 0px 0px 5px #9559ba,
-                inset 0px 0px 5px rgba(0, 0, 0, 0.1);
+    box-shadow:  4px 4px 8px #1d192e,
+             -4px -4px 8px #332b50;
     overflow: hidden;
 }
 .search-icon-div {
@@ -169,10 +165,8 @@ li a:hover {
 
 .search.active {
     width: 300px;
-    box-shadow: 0px 0px 5px #ff8400,
-                0px 0px 5px rgba(0, 0, 0, 0.1),
-                inset 0px 0px 5px #ff8400,
-                inset 0px 0px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 4px 4px 8px #1d192e,
+            inset -4px -4px 8px #332b50;
 }
 
 #input-el.active {
@@ -190,6 +184,7 @@ li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0;
 }
 
 #searchInput-el {
@@ -231,5 +226,5 @@ li a:hover {
 }
 
 #erase-icon {
-    fill: #ff8400;
+    fill: #e72a49;
 }
