@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Gloria Hallelujah', cursive;
+    /* font-family: 'Patrick Hand', cursive; */
 }
 
 html::-webkit-scrollbar {
@@ -34,7 +36,7 @@ body {
 #input-el {
     width: 65%;
     /* width: 0; */
-    padding: 10px;
+    padding: 10px 20px;
     box-sizing: border-box;
     border: 0px solid #9559ba;
     border-radius: 40px;
@@ -48,9 +50,10 @@ body {
 
 button {
     background: #28223f;
-    color: white;
+    color: #9559ba;
     padding: 10px;
     border: none;
+    border-radius: 40px;
     font-weight: bold;
     margin-bottom: 5px;
     cursor: pointer;
@@ -61,12 +64,14 @@ button:hover {
     background: #28223f;
     box-shadow: inset 4px 4px 8px #1d192e,
             inset -4px -4px 8px #332b50;
+    color: #f5a147;
 }
 
 ul {
     list-style: none;
     padding-left: 0;
     max-width: 400px;
+    margin: 5px;
 }
 
 li {
@@ -118,13 +123,16 @@ li a:hover {
     justify-content: space-between;
     padding: 5px;
     overflow: hidden;
+    align-items: center;
 }
 
 .link-icon {
     height: 40px;
     border-radius: 50%;
-    box-shadow:  4px 4px 8px #1d192e,
-             -4px -4px 8px #332b50;
+    /* box-shadow:  4px 4px 8px #1d192e,
+             -4px -4px 8px #332b50; */
+    /* box-shadow: inset 4px 4px 8px #1d192e,
+            inset -4px -4px 8px #332b50; */
 }
 
 .search {
@@ -139,6 +147,18 @@ li a:hover {
              -4px -4px 8px #332b50;
     overflow: hidden;
 }
+
+.search:hover {
+    box-shadow: inset 4px 4px 8px #1d192e,
+            inset -4px -4px 8px #332b50;
+}
+
+.search.active {
+    width: 300px;
+    box-shadow: inset 4px 4px 8px #1d192e,
+            inset -4px -4px 8px #332b50;
+}
+
 .search-icon-div {
     position: absolute;
     top: 0;
@@ -163,11 +183,7 @@ li a:hover {
 }
 
 
-.search.active {
-    width: 300px;
-    box-shadow: inset 4px 4px 8px #1d192e,
-            inset -4px -4px 8px #332b50;
-}
+
 
 #input-el.active {
     visibility:hidden;
