@@ -33,6 +33,21 @@ body {
     background-color: #28223F;
 }
 
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.input-container {
+    display: flex;
+    max-width: 400px;
+    justify-content: space-between;
+    padding: 5px;
+    overflow: hidden;
+    align-items: center;
+}
+
 #input-el {
     width: 65%;
     /* width: 0; */
@@ -42,7 +57,7 @@ body {
     border-radius: 40px;
     box-shadow: inset 4px 4px 8px #1d192e,
             inset -4px -4px 8px #332b50;
-    background-color: #1d192e;
+    background-color: #28223F;
     color: #9559ba;
     font-size: 1rem;
     outline: none;
@@ -51,7 +66,7 @@ body {
 button {
     background: #28223f;
     color: #9559ba;
-    padding: 10px;
+    padding: 10px 15px;
     border: none;
     border-radius: 40px;
     font-weight: bold;
@@ -67,11 +82,15 @@ button:hover {
     color: #f5a147;
 }
 
-ul {
+#ul-el {
     list-style: none;
-    padding-left: 0;
+    padding: 10px;
     max-width: 400px;
     margin: 5px;
+    box-shadow:  4px 4px 8px #1d192e,
+             -4px -4px 8px #332b50;
+    border-radius: 15px;
+    display:none;
 }
 
 li {
@@ -109,21 +128,6 @@ li a:hover {
 
 #delete-icon:hover {
     fill: #e72a49
-}
-
-.buttons {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px;
-}
-
-.input-container {
-    display: flex;
-    max-width: 400px;
-    justify-content: space-between;
-    padding: 5px;
-    overflow: hidden;
-    align-items: center;
 }
 
 .link-icon {

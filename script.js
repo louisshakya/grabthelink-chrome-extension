@@ -5,7 +5,7 @@ let inputTitles = []
 let isVisible = false
 const inputEl = document.getElementById("input-el")
 const ulEl = document.getElementById("ul-el")
-const inputButton = document.getElementById("input-btn")
+const saveInputButton = document.getElementById("input-btn")
 const deleteAll = document.getElementById("deleteAll-btn")
 const autoLinkButton = document.getElementById("auto-link-btn")
 const searchButton = document.querySelector(".search")
@@ -42,7 +42,7 @@ autoLinkButton.addEventListener("click", function(){
       });
 })
 
-inputButton.addEventListener("click", function() {
+saveInputButton.addEventListener("click", function() {
     if(inputEl.value == "") {
         return
     }
@@ -111,6 +111,12 @@ function render(titles, links) {
             let index = deleteButtonSvg[i].getAttribute("id")
             deleteLink(index)
         })
+    }
+    console.log("inside render",myLinks[0])
+    if (myLinks != "" && myTitles != "") {
+        ulEl.setAttribute("style","display: block")
+    } else {
+        ulEl.setAttribute("style","display: none")
     }
 }
 
