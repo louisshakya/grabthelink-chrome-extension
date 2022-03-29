@@ -15,22 +15,39 @@ const searchInput = document.getElementById("searchInput-el")
 
 eraseSvg.addEventListener("click", function() {
     searchInput.value = ""
+    render(myTitles,myLinks)
+})
+
+searchInput.addEventListener("input", (e) => {
+    const value = e.target.value.toLowerCase()
+    let titles = []
+    let links = []
+    let counter = 0
+    for (let i = 0; i < myTitles.length; i++) {
+        if (myTitles[i].toLowerCase().includes(value)) {
+            titles[counter] = myTitles[i]
+            links[counter] = myLinks[i]
+            counter++
+        }
+    }
+    if (value != "") {
+        render(titles,links)
+    } else {
+        render(myTitles,myLinks)
+    }
 })
 
 searchSvg.addEventListener("click",function() {
     searchButton.classList.toggle("active")
     inputEl.classList.toggle("active")
-    console.log(isVisible)
     if (isVisible === false) {
         eraseSvg.setAttribute("style","visibility: visible")
         searchInput.setAttribute("style","visibility: visible")
         isVisible = true
-        console.log(isVisible)
     } else {
         eraseSvg.setAttribute("style","visibility: hidden")
         searchInput.setAttribute("style","visibility: hidden")
         isVisible = false
-        console.log(isVisible)
     }
 })
 
@@ -114,7 +131,6 @@ function render(titles, links) {
             deleteLink(index)
         })
     }
-    console.log("inside render",myLinks[0])
     if (myLinks != "" && myTitles != "") {
         ulEl.setAttribute("style","display: block")
     } else {
