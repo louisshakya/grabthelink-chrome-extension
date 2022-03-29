@@ -23,10 +23,12 @@ searchSvg.addEventListener("click",function() {
     console.log(isVisible)
     if (isVisible === false) {
         eraseSvg.setAttribute("style","visibility: visible")
+        searchInput.setAttribute("style","visibility: visible")
         isVisible = true
         console.log(isVisible)
     } else {
         eraseSvg.setAttribute("style","visibility: hidden")
+        searchInput.setAttribute("style","visibility: hidden")
         isVisible = false
         console.log(isVisible)
     }
