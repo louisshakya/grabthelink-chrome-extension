@@ -31,7 +31,11 @@ searchInput.addEventListener("input", (e) => {
         }
     }
     if (value != "") {
-        render(titles,links)
+        if (counter != 0) {
+            render(titles,links)
+        } else {
+            ulEl.setAttribute("style","display: none")
+        }
     } else {
         render(myTitles,myLinks)
     }
