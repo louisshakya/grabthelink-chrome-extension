@@ -2,8 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Gloria Hallelujah', cursive;
-    /* font-family: 'Patrick Hand', cursive; */
+    /* font-family: 'Gloria Hallelujah', cursive; */
+    font-family: 'Patrick Hand', cursive;
+    --primary-purple: hsl(252, 30%, 19%);
+    --purple:#9559ba;
+    --orange:#f5a147;
+    --red:#e72a49;
 }
 
 html::-webkit-scrollbar {
@@ -20,9 +24,8 @@ html::-webkit-scrollbar-thumb {
 }
 
 html::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(hsla(277, 41%, 54%, 1), hsla(31, 90%, 62%, 1));
+    background: linear-gradient(hsl(277, 41%, 54%), hsla(31, 90%, 62%, 1));
 }
-
 
 body {
     margin: 0;
@@ -30,7 +33,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     min-width: 400px;
     width: max-content;
-    background-color: #28223F;
+    background-color: var(--primary-purple);
 }
 
 .buttonContainer {
@@ -50,22 +53,21 @@ body {
 
 #input-el {
     width: 65%;
-    /* width: 0; */
     padding: 10px 20px;
     box-sizing: border-box;
-    border: 0px solid #9559ba;
+    border: none;
     border-radius: 40px;
     box-shadow: inset 4px 4px 8px #1d192e,
             inset -4px -4px 8px #332b50;
-    background-color: #28223F;
-    color: #9559ba;
+    background-color: var(--primary-purple);
+    color: var(--purple);
     font-size: 1rem;
     outline: none;
 }
 
 button {
-    background: #28223f;
-    color: #9559ba;
+    background: var(--primary-purple);
+    color: var(--purple);
     padding: 10px 15px;
     border: none;
     border-radius: 40px;
@@ -76,10 +78,10 @@ button {
 }
 
 button:hover {
-    background: #28223f;
+    background: var(--primary-purple);
     box-shadow: inset 4px 4px 8px #1d192e,
             inset -4px -4px 8px #332b50;
-    color: #f5a147;
+    color: var(--orange);
 }
 
 #ul-el {
@@ -94,16 +96,14 @@ button:hover {
 }
 
 li {
-    /* background-color: blue; */
     display: flex;
     margin-bottom: 5px;
-    font-size: 2ch;
+    font-size: 3ch;
     align-items: center;
 }
 
 li a {
-    /* background-color: chartreuse; */
-    color: #9559ba;
+    color: var(--purple);
     margin-left: 40px;
     font-weight: 400;
     max-width: fit-content;
@@ -111,32 +111,27 @@ li a {
 }
 
 li a:hover {
-    color: #f5a147;
+    color: var(--orange);
 }
 
 .delete-button-svg {
-    /* background-color: crimson; */
     width: 3ch;
     height: 3ch;
     position: absolute;
 }
 
 #delete-icon {
-    fill: #9559ba;
+    fill: var(--purple);
     cursor: pointer;
 }
 
 #delete-icon:hover {
-    fill: #e72a49
+    fill: var(--red)
 }
 
 .link-icon {
     height: 50px;
     border-radius: 50%;
-    /* box-shadow:  4px 4px 8px #1d192e,
-             -4px -4px 8px #332b50; */
-    /* box-shadow: inset 4px 4px 8px #1d192e,
-            inset -4px -4px 8px #332b50; */
 }
 
 .search {
@@ -147,9 +142,8 @@ li a:hover {
     align-items: center;
     justify-content: flex-start;
     width: 50px;
-    /* width: 300px; */
     height: 50px;
-    background: #28223f;
+    background: var(--primary-purple);
     border-radius: 40px;
     transition: 0.5s;
     box-shadow:  4px 4px 8px #1d192e,
@@ -168,7 +162,7 @@ li a:hover {
     display: flex;
     flex-direction: row;
     position: relative;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     width: 300px;
     box-shadow: inset 4px 4px 8px #1d192e,
@@ -198,11 +192,8 @@ li a:hover {
 }
 
 #search-icon {
-    fill: #9559ba;
+    fill: var(--purple);
 }
-
-
-
 
 #input-el.active {
     visibility:hidden;
@@ -234,7 +225,7 @@ li a:hover {
     padding: 10px 0;
     padding-right: 5px;
     background: transparent;
-    color: #9559ba;
+    color: var(--purple);
     visibility: hidden;
 }
 
@@ -250,7 +241,6 @@ li a:hover {
     right: 5px;
 }
 
-
 .erase-svg {
     display: flex;
     position: relative;
@@ -264,5 +254,5 @@ li a:hover {
 }
 
 #erase-icon {
-    fill: #e72a49;
+    fill: var(--red);
 }
