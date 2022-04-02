@@ -2,10 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* font-family: 'Gloria Hallelujah', cursive; */
     font-family: 'Patrick Hand', cursive;
     --primary-purple: hsl(252, 30%, 19%);
     --purple:#9559ba;
+    --purple-shadow:#1d192e;
+    --purple-highlight:#332b50;
     --orange:#f5a147;
     --red:#e72a49;
 }
@@ -57,12 +58,20 @@ body {
     box-sizing: border-box;
     border: none;
     border-radius: 40px;
-    box-shadow: inset 4px 4px 8px #1d192e,
-            inset -4px -4px 8px #332b50;
+    box-shadow: inset 4px 4px 8px var(--purple-shadow),
+            inset -4px -4px 8px var(--purple-highlight);
     background-color: var(--primary-purple);
     color: var(--purple);
     font-size: 1rem;
     outline: none;
+    transition: width 1s;
+}
+
+#input-el.active {
+    position: absolute;
+    visibility:hidden;
+    width: 0;
+    opacity: 0;
 }
 
 button {
@@ -79,8 +88,8 @@ button {
 
 button:hover {
     background: var(--primary-purple);
-    box-shadow: inset 4px 4px 8px #1d192e,
-            inset -4px -4px 8px #332b50;
+    box-shadow: inset 4px 4px 8px var(--purple-shadow),
+            inset -4px -4px 8px var(--purple-highlight);
     color: var(--orange);
 }
 
@@ -89,8 +98,8 @@ button:hover {
     padding: 10px;
     max-width: 400px;
     margin: 5px;
-    box-shadow:  4px 4px 8px #1d192e,
-             -4px -4px 8px #332b50;
+    box-shadow:  4px 4px 8px var(--purple-shadow),
+             -4px -4px 8px var(--purple-highlight);
     border-radius: 15px;
     display:none;
 }
@@ -146,15 +155,15 @@ li a:hover {
     background: var(--primary-purple);
     border-radius: 40px;
     transition: 0.5s;
-    box-shadow:  4px 4px 8px #1d192e,
-             -4px -4px 8px #332b50;
+    box-shadow:  4px 4px 8px var(--purple-shadow),
+             -4px -4px 8px var(--purple-highlight);
     overflow: hidden;
     box-sizing: border-box;
 }
 
 .search:hover {
-    box-shadow: inset 4px 4px 8px #1d192e,
-            inset -4px -4px 8px #332b50;
+    box-shadow: inset 4px 4px 8px var(--purple-shadow),
+            inset -4px -4px 8px var(--purple-highlight);
 }
 
 .search.active {
@@ -165,8 +174,8 @@ li a:hover {
     align-items: flex-start;
     justify-content: center;
     width: 300px;
-    box-shadow: inset 4px 4px 8px #1d192e,
-            inset -4px -4px 8px #332b50;
+    box-shadow: inset 4px 4px 8px var(--purple-shadow),
+            inset -4px -4px 8px var(--purple-highlight);
     padding-left: 5px;
 }
 
@@ -194,13 +203,6 @@ li a:hover {
 #search-icon {
     fill: var(--purple);
 }
-
-#input-el.active {
-    visibility:hidden;
-    width: 0;
-    opacity: 0;
-}
-
 
 .inputSearch {
     display: flex;
