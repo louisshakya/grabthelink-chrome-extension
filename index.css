@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Patrick Hand', cursive;
-    --primary-purple: hsl(252, 30%, 19%);
+    --primary-purple: #28223f;
     --purple:#9559ba;
     --purple-shadow:#1d192e;
     --purple-highlight:#332b50;

@@ -3,6 +3,8 @@ let myLinks = []
 let myTitles = []
 let inputTitles = []
 let isVisible = false
+let tempTitles = []
+let tempLinks = []
 const inputEl = document.getElementById("input-el")
 const ulEl = document.getElementById("ul-el")
 const saveInputButton = document.getElementById("input-btn")
@@ -39,6 +41,8 @@ searchInput.addEventListener("input", (e) => {
     } else {
         render(myTitles,myLinks)
     }
+    tempTitles = titles
+    tempLinks = links
 })
 
 searchSvg.addEventListener("click",function() {
@@ -48,10 +52,13 @@ searchSvg.addEventListener("click",function() {
         eraseSvg.setAttribute("style","visibility: visible")
         searchInput.setAttribute("style","visibility: visible")
         isVisible = true
+        inputEl.value = ""
     } else {
         eraseSvg.setAttribute("style","visibility: hidden")
         searchInput.setAttribute("style","visibility: hidden")
         isVisible = false
+        searchInput.value = ""
+        render(myTitles,myLinks)
     }
 })
 
@@ -143,11 +150,29 @@ function render(titles, links) {
 }
 
 function deleteLink(index){
+    console.log(index)
+    for(let i = 0; i < myTitles.length; i++) {
+        if (myTitles[i] === tempTitles[index]) {
+            tempTitles.splice(index, 1);
+            tempLinks.splice(index, 1);
+            index = i
+            break
+        }
+    }
     myTitles.splice(index, 1);
     localStorage.setItem("myTitles",JSON.stringify(myTitles));
     myLinks.splice(index, 1);
     localStorage.setItem("myLinks",JSON.stringify(myLinks));
-    render(myTitles, myLinks)
+    if (searchInput.value != ""){
+        if (tempLinks != "" && tempTitles != "") {
+            render(tempTitles, tempLinks)
+        } else {
+            searchInput.value = ""
+            render(myTitles, myLinks)
+        }
+    } else {
+        render(myTitles, myLinks)
+    }
 }
 
 deleteAll.addEventListener("click", function(){
