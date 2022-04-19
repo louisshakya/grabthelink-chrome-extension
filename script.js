@@ -15,11 +15,13 @@ const searchSvg = document.querySelector(".search-icon-div")
 const eraseSvg = document.querySelector(".erase-svg")
 const searchInput = document.getElementById("searchInput-el")
 
+// Clears input value in search bar
 eraseSvg.addEventListener("click", function() {
     searchInput.value = ""
     render(myTitles,myLinks)
 })
 
+// Searchs for given input title
 searchInput.addEventListener("input", (e) => {
     const value = e.target.value.toLowerCase()
     let titles = []
@@ -34,17 +36,44 @@ searchInput.addEventListener("input", (e) => {
     }
     if (value != "") {
         if (counter != 0) {
-            render(titles,links)
+            tempTitles = [...titles]
+            tempLinks = [...links]
+            render(tempTitles,tempLinks)
         } else {
             ulEl.setAttribute("style","display: none")
         }
     } else {
         render(myTitles,myLinks)
     }
-    tempTitles = titles
-    tempLinks = links
 })
 
+// Deletes a single item
+function deleteLink(index){
+    for(let i = 0; i < myTitles.length; i++) {
+        if (myLinks[i] === tempLinks[index] && myTitles[i] == tempTitles[index]) {
+            tempTitles.splice(index, 1);
+            tempLinks.splice(index, 1);
+            index = i
+            break
+        }
+    }
+    myTitles.splice(index, 1);
+    localStorage.setItem("myTitles",JSON.stringify(myTitles));
+    myLinks.splice(index, 1);
+    localStorage.setItem("myLinks",JSON.stringify(myLinks));
+    if (searchInput.value != ""){
+        if (tempLinks != "" && tempTitles != "") {
+            render(tempTitles, tempLinks)
+        } else {
+            searchInput.value = ""
+            render(myTitles, myLinks)
+        }
+    } else {
+        render(myTitles, myLinks)
+    }
+}
+
+// Toggles search button to reveal search bar
 searchSvg.addEventListener("click",function() {
     searchButton.classList.toggle("active")
     inputEl.classList.toggle("active")
@@ -59,9 +88,11 @@ searchSvg.addEventListener("click",function() {
         isVisible = false
         searchInput.value = ""
         render(myTitles,myLinks)
+        
     }
 })
 
+// Grabs the link and title from the current tab automatically and saves it
 autoLinkButton.addEventListener("click", function(){
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         myTitles.push(tabs[0].title)
@@ -72,6 +103,7 @@ autoLinkButton.addEventListener("click", function(){
       });
 })
 
+// Saves the link from the current tab with the title given by the user
 saveInputButton.addEventListener("click", function() {
     if(inputEl.value == "") {
         return
@@ -86,19 +118,19 @@ saveInputButton.addEventListener("click", function() {
     inputEl.value = ""
 })
 
+// Gets items from the local storage
 const storedLinks = JSON.parse(localStorage.getItem("myLinks"))
 const storedTitles = JSON.parse(localStorage.getItem("myTitles"))
 
-
 if (storedLinks && storedTitles) {
-    myTitles = storedTitles
-    myLinks = storedLinks
+    myTitles = [...storedTitles]
+    myLinks = [...storedLinks]
     render(myTitles, myLinks)
 }
 
+// Renders the list
 function render(titles, links) {
     let listItems = ""
-    let counter = 0
     for (let i = links.length-1; i >= 0; i--) {
         listItems += `
         <li>
@@ -132,7 +164,6 @@ function render(titles, links) {
              </g>
             </svg>
         </li>`
-        {counter++}
     }
     ulEl.innerHTML = listItems
     let deleteButtonSvg = document.getElementsByClassName("delete-button-svg")
@@ -149,32 +180,7 @@ function render(titles, links) {
     }
 }
 
-function deleteLink(index){
-    console.log(index)
-    for(let i = 0; i < myTitles.length; i++) {
-        if (myTitles[i] === tempTitles[index]) {
-            tempTitles.splice(index, 1);
-            tempLinks.splice(index, 1);
-            index = i
-            break
-        }
-    }
-    myTitles.splice(index, 1);
-    localStorage.setItem("myTitles",JSON.stringify(myTitles));
-    myLinks.splice(index, 1);
-    localStorage.setItem("myLinks",JSON.stringify(myLinks));
-    if (searchInput.value != ""){
-        if (tempLinks != "" && tempTitles != "") {
-            render(tempTitles, tempLinks)
-        } else {
-            searchInput.value = ""
-            render(myTitles, myLinks)
-        }
-    } else {
-        render(myTitles, myLinks)
-    }
-}
-
+// Delets all items
 deleteAll.addEventListener("click", function(){
     localStorage.clear()
     myLinks = []
